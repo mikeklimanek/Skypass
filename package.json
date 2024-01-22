@@ -1,0 +1,14 @@
+{
+  "name": "skypass",
+  "version": "1.0.0",
+  "description": "airport app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "mike",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^28.1.4"
+  }
+}
