@@ -9,6 +9,9 @@ const db = mysql.createConnection(process.env.DATABASE_URL);
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 app.set('view engine', 'hbs');
 
 db.connect(err => {
@@ -19,13 +22,8 @@ db.connect(err => {
     console.log('Connected to the database');
 });
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/register', (req, res) => {
-    res.render('register');
-});
+app.use('/', require('./routes/pages'));
+app.use('/auth', require('./routes/auth'));
 
 app.listen(3000, () => {
     console.log('Server is listening on port 3000');
