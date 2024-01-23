@@ -1,9 +1,15 @@
 const express = require('express');
 const mysql = require('mysql');
+const path = require('path');
 const app = express();
 require('dotenv').config();
 
 const db = mysql.createConnection(process.env.DATABASE_URL);
+
+const publicDirectory = path.join(__dirname, './public');
+app.use(express.static(publicDirectory));
+
+app.set('view engine', 'hbs');
 
 db.connect(err => {
     if (err) {
@@ -14,7 +20,11 @@ db.connect(err => {
 });
 
 app.get('/', (req, res) => {
-    res.send('<h1>Home Page working</h1>');
+    res.render('index');
+});
+
+app.get('/register', (req, res) => {
+    res.render('register');
 });
 
 app.listen(3000, () => {
