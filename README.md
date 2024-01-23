@@ -9,3 +9,6 @@
 6) added a validator for creating a strong password
 7) wrote a visual presentation of a password validator for users creating account
 8) **soon** Confirm password visually checks if passwords are matching on registration
+9) **soon** safety measures and JWT (JSON Tokens) for smooth user interaction to stay logged in
+10) **soon** landing page for logged in user with personal profile and availability to change settings
+11) **soon** logout button
