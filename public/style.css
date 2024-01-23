@@ -27,3 +27,17 @@ nav li a:hover {
     color: yellow;
     text-decoration: none;
 }
+
+.requirement {
+    color: grey;
+}
+
+.requirement.met {
+    color: green;
+    border-bottom: green 2px solid;
+}
+
+.checkmark {
+    color: green;
+    border-bottom: green 2px solid;
+}
