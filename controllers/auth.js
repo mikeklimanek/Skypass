@@ -36,3 +36,36 @@ exports.register = (req, res) => {
         })
     })
 };
+
+exports.login = async (req, res) => {
+    console.log(req.body);
+    const { email, password } = req.body;
+    if (!email || !password) {
+        return res.render('login', {
+            message: 'Please provide an email and password'
+        });
+    };
+
+    db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
+        if (error) {
+            console.log(error);
+            return res.render('login', {
+                message: 'An error occurred'
+            });
+        }
+
+        if (results.length === 0 || !await bcrypt.compare(password, results[0].password)) {
+            return res.render('login', {
+                message: 'Email or Password is incorrect'
+            });
+        } else {
+            // User has been successfully authenticated
+            // Here you can set up your JWT token or session as per your requirement
+            // For example: const token = jwt.sign({ id: results[0].id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
+
+            // Redirect user to the dashboard or another page
+            return res.status(200).redirect('/dashboard'); // replace '/dashboard' with your success redirect page
+        }
+    });  
+        
+};
