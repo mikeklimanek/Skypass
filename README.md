@@ -1,5 +1,8 @@
 # SkyPass
-<h1>SkyPass is a website with fully functional backend for a day to day use</h1>
+<h1>SkyPass is a website with fully functional backend</h1>
+
+SkyPass will soon bring chatting experience with safety in mind
+
 
 1) Coded a website from scratch with very basic front end
 2) connected website with DB
