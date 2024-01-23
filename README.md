@@ -1,7 +1,7 @@
 # SkyPass
 <h1>SkyPass is a website with fully functional backend</h1>
 
-SkyPass will soon bring chatting experience with safety in mind
+**SkyPass will soon bring chatting experience with safety in mind**
 
 
 1) Coded a website from scratch with very basic front end
