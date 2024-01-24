@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <title>SkyPass Register</title>
 </head>
 <body>
     <nav>
@@ -49,9 +49,12 @@
                     <div class="form-group">
                         <label for="passwordConfirm">Confirm Password</label>
                         <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
+                        <span id="passwordMatchNotice" class="checkmark" style="display:none;">Passwords match ✓</span>
+                        <span id="passwordMismatchNotice" class="requirement">Passwords do not match ✗</span>
+                        <script src="/passValidator.js"></script>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Register User</button>
+                    <button type="submit" id="submitButton" class="btn btn-primary-disabled">Register User</button>
+                    <script src="/passValidator.js"></script>
                 </form>
             </div>
             {{#if message}}

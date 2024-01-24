@@ -22,3 +22,23 @@ document.getElementById('password').addEventListener('input', function(e) {
     document.getElementById('checkmark').style.display = allMet ? 'inline' : 'none';
     document.getElementById('password-requirements').style.display = allMet ? 'none' : 'block';
 });
+
+document.getElementById('passwordConfirm').addEventListener('input', function() {
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+
+    // Check if passwords match
+    const passwordsMatch = password === passwordConfirm;
+
+    // Toggle the visibility of the password match/mismatch notices
+    document.getElementById('passwordMatchNotice').style.display = passwordsMatch ? 'inline' : 'none';
+    document.getElementById('passwordMismatchNotice').style.display = !passwordsMatch ? 'inline' : 'none';
+
+    if (passwordsMatch) {
+        submitButton.disabled = false;
+        submitButton.classList.remove('submitButton-disabled');
+    } else {
+        submitButton.disabled = true;
+        submitButton.classList.add('submitButton-disabled');
+    }
+});
