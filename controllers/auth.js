@@ -77,7 +77,7 @@ exports.login = async (req, res) => {
             // For example: const token = jwt.sign({ id: results[0].id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
 
             // Redirect user to the dashboard or another page
-            return res.status(200).redirect('/dashboard'); // replace '/dashboard' with your success redirect page
+            return res.status(200).redirect('/profile'); // replace '/dashboard' with your success redirect page
         }
     });  
         
