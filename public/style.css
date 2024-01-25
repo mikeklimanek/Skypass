@@ -51,6 +51,10 @@ nav li a:hover {
     padding-right: 10px;
 }
 
+#length.met {
+    visibility: hidden;
+}
+
 .checkmark {
     color: green;
     border-bottom: green 2px solid;
@@ -74,13 +78,6 @@ nav li a:hover {
 
 /* ///////////////// new styles //////////////////// */
 
-/* body{
-    background-color: #2c2f33;
-    background: linear-gradient(to right, #696969, #2c2f33);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-} */
 
 .container{
     background-color: rgba(255, 255, 255, 0.1);
@@ -95,7 +92,6 @@ nav li a:hover {
 }
 
 .container button{
-    /* background-color: #512da8; nice purple color */ 
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(40px);
     color: #fff;
@@ -162,13 +158,16 @@ nav li a:hover {
 }
 
 .card-body .form-control {
-    width: 100%; /* Make form controls fill the card-body */
+    width: 100%; 
 }
 
 #login-container .form-control {
-    min-width: 270px;
+    width: 270px;
 }
 
+#reg-container .form-control {
+    width: 490px;
+}
 
 
 

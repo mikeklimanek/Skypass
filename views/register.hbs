@@ -28,45 +28,47 @@
             <div class="card-header">
                 <h1>Sign-up</h1>
             </div>
-            <div class="card-body">
-                <form action="/auth/register" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
-                    </div>
+            <div id="reg-container">
+                <div class="card-body">
+                    <form action="/auth/register" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="youremail@someemail.com">
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="youremail@someemail.com">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="sEcUReP4sSW0R9!">
-                        <div id="password-requirements">
-                            <span id="lowercase" class="requirement">Lowercase letter (a-z), </span>
-                            <span id="uppercase" class="requirement">Uppercase letter (A-Z), </span>
-                            <span id="number" class="requirement">Number (0-9), </span>
-                            <span id="length" class="requirement">Minimum 8 characters</span>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                                <span id="length" class="requirement">Minimum 8 characters</span>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="sEcUReP4sSW0R9!">
+                            <div id="password-requirements">
+                                <span id="lowercase" class="requirement">Lowercase letter (a-z), </span>
+                                <span id="uppercase" class="requirement">Uppercase letter (A-Z), </span>
+                                <span id="number" class="requirement">Number (0-9), </span>
+                                <script src="/passValidator.js"></script>
+                            </div>
+                                <span id="checkmark" class="checkmark" style="display:none;">Strong password ✓</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passwordConfirm">Confirm Password</label>
+                            <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="sEcUReP4sSw0R9!">
+                            <span id="passwordMatchNotice" class="checkmark" style="display:none;">Passwords match ✓</span>
+                            <span id="passwordMismatchNotice" class="requirement">Passwords do not match ✗</span>
                             <script src="/passValidator.js"></script>
                         </div>
-                            <span id="checkmark" class="checkmark" style="display:none;">Strong password ✓</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="passwordConfirm">Confirm Password</label>
-                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="sEcUReP4sSw0R9!">
-                        <span id="passwordMatchNotice" class="checkmark" style="display:none;">Passwords match ✓</span>
-                        <span id="passwordMismatchNotice" class="requirement">Passwords do not match ✗</span>
+                        <button type="submit" id="submitButton" class="btn btn-primary-disabled">Register User</button>
                         <script src="/passValidator.js"></script>
-                    </div>
-                    <button type="submit" id="submitButton" class="btn btn-primary-disabled">Register User</button>
-                    <script src="/passValidator.js"></script>
-                </form>
-            </div>
-            {{#if message}}
-                <h4 class="alert alert-danger">{{message}}</h4>
-            {{/if}}
+                    </form>
+                </div>
+                {{#if message}}
+                    <h4 class="alert alert-danger">{{message}}</h4>
+                {{/if}}
+            </div>    
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -9,7 +9,6 @@ exports.register = (req, res) => {
     console.log(req.body);
     const { name, email, password, passwordConfirm } = req.body;
 
-    // Function to validate the password
     function validatePassword(password) {
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
         return regex.test(password);
@@ -72,12 +71,12 @@ exports.login = async (req, res) => {
                 message: 'Email or Password is incorrect'
             });
         } else {
-            // User has been successfully authenticated
-            // Here you can set up your JWT token or session as per your requirement
-            // For example: const token = jwt.sign({ id: results[0].id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
 
-            // Redirect user to the dashboard or another page
-            return res.status(200).redirect('/profile'); // replace '/dashboard' with your success redirect page
+
+            // const token = jwt.sign({ id: results[0].id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
+
+
+            return res.status(200).redirect('/profile'); 
         }
     });  
         
