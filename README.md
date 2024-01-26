@@ -26,6 +26,7 @@
 
 ### 2nd phase of SkyPass in MongoDB
 
-* Chat between users with Messenger-like experience
-* Forum page for sharing ideas
-* FastAPI project (most likely GO or Python) for Stock Market analytics and history stored on MongoDB
+  * Chat between users with Messenger-like experience
+  * Forum page for sharing ideas
+  * FastAPI project (most likely GO or Python) for Stock Market analytics and history stored on MongoDB
+  * Stock analytics will send email alerts in case a condition is met
