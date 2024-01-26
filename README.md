@@ -1,4 +1,6 @@
 # SkyPass
+
+![Example Image](/public/Skypass.PNG)
 ## SkyPass is a website with fully functional backend
 
 ### SkyPass phase 1 - setting up a secure page with users data on MySQL
