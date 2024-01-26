@@ -25,10 +25,33 @@
 
     <div class="container mt-4" id="home">
         <h1>Home</h1>
-        <p>"This is a generated story for testing," began the old librarian, his eyes twinkling behind round spectacles. "In a quaint village nestled between rolling hills and dense forests, there lived a young girl named Elara. She was known for her boundless curiosity and a heart filled with dreams. The most intriguing of all her fascinations was the ancient tree that stood at the village's edge, known as the Whispering Willow."</p>
-        <p>Elara spent countless hours under its expansive branches, which seemed to hum with a mysterious energy. The villagers often told tales of the tree being magical, a gateway to worlds unknown, but Elara always thought these were just stories to entertain children.</p>
-        <p>One crisp autumn evening, as the sky painted itself with shades of orange and purple, Elara sat under the Whispering Willow, her mind lost in a book about mythical realms. A sudden gentle breeze swirled around her, and the tree's leaves rustled as if beckoning her. She looked up, and to her astonishment, saw a faint, shimmering archway forming in the tree’s trunk.</p>
+        <div id="readmeContent">
+        </div>
     </div>
+
+    <script>
+        fetch('README.txt') 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(text => {
+                document.getElementById('readmeContent').innerHTML = convertMarkdownToHTML(text);
+            })
+            .catch(error => console.error('Error fetching README:', error));
+
+        function convertMarkdownToHTML(markdown) {
+            return markdown
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                .replace(/\|/g, '<br> ○')
+                .replace(/\n$/gim, '<br />');
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 </body>
 </html>
