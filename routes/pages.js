@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const authJWT = require('../controllers/JWT.js').authenticateJWT;
 
+
 router.get('/', (req, res) => {
-    res.render('index');
+    const isAuthenticated = req.cookies['token'] ? true : false;
+    res.render('index', { isAuthenticated });
 });
 
 router.get('/register', (req, res) => { 
@@ -15,7 +17,13 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/profile', authJWT, (req, res) => {
-    res.render('profile');
+    const isAuthenticated = req.cookies['token'] ? true : false;
+    res.render('profile', { isAuthenticated });
+});
+
+router.get('/logout', (req, res) => {
+    res.clearCookie('token'); 
+    res.redirect('/');  
 });
 
 module.exports = router;

@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const authenticateJWT = (req, res, next) => {
     let token;
 
-    // Check for token in cookies or Authorization header
     if (req.cookies && req.cookies.token) {
         token = req.cookies.token;
     } else if (req.headers.authorization) {
@@ -13,12 +12,10 @@ const authenticateJWT = (req, res, next) => {
         }
     }
 
-    // If no token found, send an unauthorized response
     if (!token) {
         return res.status(401).send('Unauthorized: No token provided');
     }
 
-    // Verify the token
     try {
         const verified = jwt.verify(token, process.env.JWT_SECRET);
         req.user = verified;

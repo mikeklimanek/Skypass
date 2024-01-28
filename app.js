@@ -14,12 +14,7 @@ app.use(express.static(publicDirectory));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(session({
-    secret: process.env.JWT_SECRET,  
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } 
-  }));
+
 
 app.set('view engine', 'hbs');
 

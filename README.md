@@ -16,8 +16,8 @@
 * Updated layout of frontend
 * New background, transparent containers/cards/buttons
 * Safety measures and JWT (JSON Tokens) for smooth user interaction to stay logged in
+* Logout button
   * **Soon** - Landing page for logged in user with personal profile and availability to change settings
-  * **Soon** - Logout button
   * **Soon** - Rewritten reroutes to prevent from deleting forms when submitting incorrect info
   * **Soon** - Git sync (Docker, GitHub, gcloud) with main branch going live
   * **Future pages** are planned to be in Go lang
