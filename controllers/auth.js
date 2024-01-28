@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 const db = mysql.createConnection(process.env.DATABASE_URL);
 
@@ -73,10 +74,14 @@ exports.login = async (req, res) => {
         } else {
 
 
-            // const token = jwt.sign({ id: results[0].id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
+            const token = jwt.sign({ id: results[0].id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
+            console.log('The token is: ' + token);
 
-
-            return res.status(200).redirect('/profile'); 
+            res.cookie('token', token, { 
+                httpOnly: true,
+                expires: new Date(Date.now() + 24 * 60 * 60 * 1000) 
+            });
+            res.redirect('/profile'); 
         }
     });  
         

@@ -15,7 +15,7 @@
 * Confirm password visually checks if passwords are matching on registration
 * Updated layout of frontend
 * New background, transparent containers/cards/buttons
-  * **Soon** - Safety measures and JWT (JSON Tokens) for smooth user interaction to stay logged in
+* Safety measures and JWT (JSON Tokens) for smooth user interaction to stay logged in
   * **Soon** - Landing page for logged in user with personal profile and availability to change settings
   * **Soon** - Logout button
   * **Soon** - Rewritten reroutes to prevent from deleting forms when submitting incorrect info
