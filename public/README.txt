@@ -1,9 +1,7 @@
 # SkyPass
-
-![Example Image](/public/Skypass.PNG)
 ## SkyPass is a website with fully functional backend
 
-### SkyPass phase 1 - setting up a secure page with users data on MySQL
+### SkyPass phase 1 - setting up a secure page with MySQL
 
 * Coded a website from scratch with very basic front end
 * Connected website with DB
@@ -19,17 +17,19 @@
 * Logout button
 
 * current work is around AWS setup for the whole project with AWS CLI, connecting an image, github repo, and AWS to run CI/CD
-  * **Soon** - preparing to go live
-  * **Soon** - Git sync (Docker, GitHub, gcloud) with main branch going live
-  * **Soon** - Landing page for logged in user with personal profile and availability to change settings
-  * **Soon** - Rewritten reroutes to prevent from deleting forms when submitting incorrect info
-  * **Future pages** are planned to be in Go lang
+| SOON - preparing to go live
+| SOON - Landing page for logged in user with personal profile and availability to change settings
+| SOON - Rewritten reroutes to prevent from deleting forms when submitting incorrect info
+| SOON - Git sync (Docker, GitHub, gcloud) with main branch going live
+| Future pages are planned to be in Go lang
+
+
 
 ## Upcoming plans
 
 ### 2nd phase of SkyPass in MongoDB
 
-  * Chat between users with Messenger-like experience
-  * Forum page for sharing ideas
-  * FastAPI project (most likely GO or Python) for Stock Market analytics and history stored on MongoDB
-  * Stock analytics will send email alerts in case a condition is met
+| Chat between users with Messenger-like experience
+| Forum page for sharing ideas
+| FastAPI project (most likely GO or Python) for Stock Market analytics and history stored on MongoDB
+| Stock analytics will send email alerts in case a condition is met
