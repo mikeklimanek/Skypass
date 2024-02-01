@@ -7,7 +7,7 @@ with open("web_mini_projects/pi-1million.txt", "r") as file:
 digits = [int(digit) for digit in pi]
 
 pygame.init()
-width, height = 800, 800
+width, height = 2560, 1440
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pi Visualization")
 
@@ -38,6 +38,7 @@ while running:
     index += 1
     counts[current_digit] += 1
 
+
     for i in range(len(digits) - 1):
         start_digit = digits[i]
         end_digit = digits[i + 1]
@@ -59,11 +60,9 @@ while running:
         positions[key] = positions.get(key, 0) + 0.02
 
         pygame.draw.line(screen, (255, 255, 255), (x_start, y_start), (x_end, y_end), 1)
+        pygame.display.flip()
+        pygame.time.delay(10)
 
-    pygame.display.flip()
-    clock.tick(500)  
+    clock.tick(60)
 
 pygame.quit()
-
-
-
