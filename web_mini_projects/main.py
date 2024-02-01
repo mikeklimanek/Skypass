@@ -1,5 +1,7 @@
 import pygame
 import math
+import time
+import random
 
 with open("web_mini_projects/pi-1million.txt", "r") as file:
     pi = file.read()
@@ -18,12 +20,16 @@ counts = [0] * 10
 index = 0
 positions = {}
 
+scaling_factor = 3
+
+# font = pygame.font.Font(None, 36)
+
 def get_offset_angle(angle, offset):
     return angle + offset
 
 def get_offset_coordinates(x, y, offset, angle):
-    new_x = x + offset * math.cos(angle)
-    new_y = y + offset * math.sin(angle)
+    new_x = x + offset * scaling_factor * math.cos(angle)
+    new_y = y + offset * scaling_factor * math.sin(angle)
     return new_x, new_y
 
 while running:
@@ -32,7 +38,7 @@ while running:
             running = False
 
     screen.fill((0, 0, 0))
-    pygame.draw.circle(screen, (255, 255, 255), (width // 2, height // 2), 400, 1)
+    pygame.draw.circle(screen, (255, 255, 255), (width // 2, height // 2), 600, 1)
 
     current_digit = digits[index]
     index += 1
@@ -46,11 +52,11 @@ while running:
         angle_start = start_digit * (2 * math.pi) / len(counts)
         angle_end = end_digit * (2 * math.pi) / len(counts)
 
-        x_start = width // 2 + 200 * math.cos(angle_start)
-        y_start = height // 2 + 200 * math.sin(angle_start)
+        x_start = width // 2 + 200 * scaling_factor * math.cos(angle_start)
+        y_start = height // 2 + 200 * scaling_factor * math.sin(angle_start)
 
-        x_end = width // 2 + 200 * math.cos(angle_end)
-        y_end = height // 2 + 200 * math.sin(angle_end)
+        x_end = width // 2 + 200 * scaling_factor * math.cos(angle_end)
+        y_end = height // 2 + 200 * scaling_factor * math.sin(angle_end)
 
         key = (start_digit, end_digit)
         if key in positions:
@@ -59,7 +65,11 @@ while running:
 
         positions[key] = positions.get(key, 0) + 0.02
 
-        pygame.draw.line(screen, (255, 255, 255), (x_start, y_start), (x_end, y_end), 1)
+        index += 1
+        line_color = pygame.Color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        pygame.draw.line(screen, line_color, (x_start, y_start), (x_end, y_end), 1)
+        # text = font.render(f"Digits Used: {end_digit}", True, (255, 255, 255))
+        # screen.blit(text, (10, 10))
         pygame.display.flip()
         pygame.time.delay(10)
 
