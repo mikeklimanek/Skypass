@@ -1,0 +1,4 @@
+* still figuring out content for a page
+
+Thinking of all sorts of visualisers, converters and small apps to practice Py and Go, since most of the time I am in Node now
+
