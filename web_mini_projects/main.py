@@ -13,6 +13,7 @@ width, height = 2560, 1440
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pi Visualization")
 
+# colors can be randomized
 # red = (255, 0, 0), white = (255, 255, 255)
 colors = [(255, 255, 255)]
 color_index = 0
@@ -27,7 +28,7 @@ positions = {}
 scaling_factor = 3
 
 
-# font = pygame.font.Font(None, 36)
+font = pygame.font.Font(None, 36)
 
 def get_offset_angle(angle, offset):
     return angle + offset
@@ -43,7 +44,7 @@ while running:
             running = False
 
     screen.fill((0, 0, 0))
-    rotation_angle_radians = math.radians(0)
+    rotation_angle_radians = math.radians(90)
     pygame.draw.circle(screen, (255, 255, 255), (width // 2, height // 2), 605, 5)
 
     current_digit = digits[index]
@@ -61,11 +62,11 @@ while running:
 
 
 
-        x_start = width // 2 + 250 * scaling_factor * math.cos(angle_start)
+        x_start = width // 2 + 200 * scaling_factor * math.cos(angle_start)
         y_start = height // 2 + 200 * scaling_factor * math.sin(angle_start)
         x_end = width // 2 + 200 * scaling_factor * math.cos(angle_end)
-        y_end = height // 2 + 250 * scaling_factor * math.sin(angle_end)
-        rotation_angle_radians += 1 * math.pi / 180
+        y_end = height // 2 + 200 * scaling_factor * math.sin(angle_end)
+        rotation_angle_radians += 1
 
         # key = (start_digit, end_digit)
         # if key in positions:
@@ -75,16 +76,17 @@ while running:
         # positions[key] = positions.get(key, 0) + 0.02
 
         # index += 1
-        # line_color = pygame.Color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-        # line_color = (255, 255, 255)
+        
+
         line_color = pygame.Color(*colors[color_index % len(colors)])
         color_index += 1
+
         pygame.draw.line(screen, line_color, (x_start, y_start), (x_end, y_end), 1)
-        # text = font.render(f"Digits Used: {end_digit}", True, (255, 255, 255))
-        # screen.blit(text, (10, 10))
+        print(f"Digits Used: {i}")
+        screen.blit(font.render(f"Digits Used: {i}", True, (255, 255, 255)), (0, 0))
         pygame.display.flip()
-        # pygame.time.delay(50)
+        # pygame.time.delay(100)
+        # clock.tick(1)
+    pygame.quit()
 
-    clock.tick(10)
 
-pygame.quit()
