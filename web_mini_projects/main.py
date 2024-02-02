@@ -13,6 +13,10 @@ width, height = 2560, 1440
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pi Visualization")
 
+# red = (255, 0, 0), white = (255, 255, 255)
+colors = [(255, 255, 255)]
+color_index = 0
+
 running = True
 clock = pygame.time.Clock()
 
@@ -21,6 +25,7 @@ index = 0
 positions = {}
 
 scaling_factor = 3
+
 
 # font = pygame.font.Font(None, 36)
 
@@ -38,7 +43,8 @@ while running:
             running = False
 
     screen.fill((0, 0, 0))
-    pygame.draw.circle(screen, (255, 255, 255), (width // 2, height // 2), 600, 1)
+    rotation_angle_radians = math.radians(0)
+    pygame.draw.circle(screen, (255, 255, 255), (width // 2, height // 2), 605, 5)
 
     current_digit = digits[index]
     index += 1
@@ -49,30 +55,36 @@ while running:
         start_digit = digits[i]
         end_digit = digits[i + 1]
 
-        angle_start = start_digit * (2 * math.pi) / len(counts)
-        angle_end = end_digit * (2 * math.pi) / len(counts)
+        angle_start = (start_digit * (2 * math.pi) / len(counts)) + rotation_angle_radians
+        angle_end = (end_digit * (2 * math.pi) / len(counts)) + rotation_angle_radians
 
-        x_start = width // 2 + 200 * scaling_factor * math.cos(angle_start)
+
+
+
+        x_start = width // 2 + 250 * scaling_factor * math.cos(angle_start)
         y_start = height // 2 + 200 * scaling_factor * math.sin(angle_start)
-
         x_end = width // 2 + 200 * scaling_factor * math.cos(angle_end)
-        y_end = height // 2 + 200 * scaling_factor * math.sin(angle_end)
+        y_end = height // 2 + 250 * scaling_factor * math.sin(angle_end)
+        rotation_angle_radians += 1 * math.pi / 180
 
-        key = (start_digit, end_digit)
-        if key in positions:
-            offset_angle = get_offset_angle(math.atan2(y_end - y_start, x_end - x_start), positions[key])
-            x_end, y_end = get_offset_coordinates(x_end, y_end, 10, offset_angle)
+        # key = (start_digit, end_digit)
+        # if key in positions:
+        #     offset_angle = get_offset_angle(math.atan2(y_end - y_start, x_end - x_start), positions[key])
+        #     x_end, y_end = get_offset_coordinates(x_end, y_end, 10, offset_angle)
 
-        positions[key] = positions.get(key, 0) + 0.02
+        # positions[key] = positions.get(key, 0) + 0.02
 
-        index += 1
-        line_color = pygame.Color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        # index += 1
+        # line_color = pygame.Color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        # line_color = (255, 255, 255)
+        line_color = pygame.Color(*colors[color_index % len(colors)])
+        color_index += 1
         pygame.draw.line(screen, line_color, (x_start, y_start), (x_end, y_end), 1)
         # text = font.render(f"Digits Used: {end_digit}", True, (255, 255, 255))
         # screen.blit(text, (10, 10))
         pygame.display.flip()
-        pygame.time.delay(10)
+        # pygame.time.delay(50)
 
-    clock.tick(60)
+    clock.tick(10)
 
 pygame.quit()
