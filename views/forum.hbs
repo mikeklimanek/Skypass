@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/MessageStyle.css">
     <title>SkyPass | Forum</title>
-</head>
-<body>
     <nav>
         <div class="nav-container">
             <ul>
@@ -31,29 +29,33 @@
                 Your browser does not support the video tag.
             </video>
     </div>
-    <div class="chat-container">
-        <div class="message-window" id="messageWindow"></div>
-        <div class="input-area">    
-            <input type="text" class="message-input" id="messageInput" placeholder="Type your message...">
-            <button class="send-button" id="sendButton">Go</button>
-        </div>
-    </div>    
+</head>
+<body>
+    <div class="message-background">
+        <div class="chat-container">
+            <div class="message-window" id="messageWindow"></div>
+            <div class="input-area">    
+                <input type="text" class="message-input" id="messageInput" placeholder="Type your message...">
+                <button class="send-button" id="sendButton">Go</button>
+            </div>
+        </div>    
 
-    <script>
-        const messageWindow = document.getElementById('messageWindow');
-        const messageInput = document.getElementById('messageInput');
-        const sendButton = document.getElementById('sendButton');
+        <script>
+            const messageWindow = document.getElementById('messageWindow');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
 
-        sendButton.addEventListener('click', () => {
-            const message = messageInput.value;
-            if (message.trim() !== '') {
-                const messageElement = document.createElement('p');
-                messageElement.textContent = message;
-                messageWindow.appendChild(messageElement);
-                messageInput.value = '';
-            }
-        });
-    </script>
+            sendButton.addEventListener('click', () => {
+                const message = messageInput.value;
+                if (message.trim() !== '') {
+                    const messageElement = document.createElement('p');
+                    messageElement.textContent = message;
+                    messageWindow.appendChild(messageElement);
+                    messageInput.value = '';
+                }
+            });
+        </script>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 </body>
