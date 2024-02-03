@@ -15,6 +15,7 @@
 * New background, transparent containers/cards/buttons
 * Safety measures and JWT (JSON Tokens) for smooth user interaction to stay logged in
 * Logout button
+* Forum page (to be changed) implementing message functions and basic UI
 
 * current work is around AWS setup for the whole project with AWS CLI, connecting an image, github repo, and AWS to run CI/CD
 | SOON - preparing to go live
