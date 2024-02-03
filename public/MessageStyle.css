@@ -1,7 +1,14 @@
 .message-background {
-    height: 60%;
-    width: 60%;
-    margin: 0;
+    height: 100%;
+    width: 800px;
+    /* background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px); */
+    max-width: 80%;
+    min-width: 300px;
+    margin: auto;
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
     color: #fff;
     overflow: auto; 
 }
@@ -27,6 +34,8 @@
     backdrop-filter: blur(3px);
     border: 1px solid #cccccc34;
     overflow-y: scroll;
+    padding-left: 15px;
+    padding-top: 15px;
     margin-bottom: 10px;
 }
 
