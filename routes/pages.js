@@ -21,6 +21,11 @@ router.get('/profile', authJWT, (req, res) => {
     res.render('profile', { isAuthenticated });
 });
 
+router.get('/forum', authJWT, (req, res) => {
+    const isAuthenticated = req.cookies['token'] ? true : false;
+    res.render('forum', { isAuthenticated });
+});
+
 router.get('/logout', (req, res) => {
     res.clearCookie('token'); 
     res.redirect('/');  

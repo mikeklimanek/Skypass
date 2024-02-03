@@ -82,7 +82,7 @@ while running:
         color_index += 1
 
         pygame.draw.line(screen, line_color, (x_start, y_start), (x_end, y_end), 1)
-        print(f"Digits Used: {i}")
+        # print(f"Digits Used: {i}")
         screen.blit(font.render(f"Digits Used: {i}", True, (255, 255, 255)), (0, 0))
         pygame.display.flip()
         # pygame.time.delay(100)

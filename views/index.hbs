@@ -9,17 +9,20 @@
 </head>
 <body>
     <nav>
-        <ul>
-            {{#if isAuthenticated}}
-                <li><a href="/">Home</a></li>
-                <li id="nav-profile"><a href="/profile">Profile</a></li>
-                <li><a href="/logout">Logout</a></li>
-            {{else}}
-                <li><a href="/">Home</a></li>
-                <li id="nav-login"><a href="/login">Login</a></li>
-                <li id="nav-register"><a href="/register">Register</a></li>
-            {{/if}}
-        </ul>
+        <div class="nav-container">
+            <ul>
+                {{#if isAuthenticated}}
+                    <li><a href="/">Home</a></li>
+                    <li id="nav-profile"><a href="/profile">Profile</a></li>
+                    <li id="nav-forum"><a href="/forum">Forum</a></li>
+                    <li><a href="/logout" class="logout">Logout</a></li>
+                {{else}}
+                    <li><a href="/">Home</a></li>
+                    <li id="nav-login"><a href="/login">Login</a></li>
+                    <li id="nav-register"><a href="/register">Register</a></li>
+                {{/if}}
+            </ul>
+        </div>
     </nav>
     <div class="video-background">
             <video autoplay loop muted>
