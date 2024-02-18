@@ -9,13 +9,13 @@ with open("web_mini_projects/pi-1million.txt", "r") as file:
 digits = [int(digit) for digit in pi]
 
 pygame.init()
-width, height = 2560, 1440
+width, height = 1200, 900
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pi Visualization")
 
-# colors can be randomized
+# colors
 # red = (255, 0, 0), white = (255, 255, 255)
-colors = [(255, 255, 255)]
+colors = [(255, 255, 255),(255, 0, 0)]
 color_index = 0
 
 running = True
@@ -62,10 +62,10 @@ while running:
 
 
 
-        x_start = width // 2 + 200 * scaling_factor * math.cos(angle_start)
+        x_start = width // 2 + 250 * scaling_factor * math.cos(angle_start)
         y_start = height // 2 + 200 * scaling_factor * math.sin(angle_start)
         x_end = width // 2 + 200 * scaling_factor * math.cos(angle_end)
-        y_end = height // 2 + 200 * scaling_factor * math.sin(angle_end)
+        y_end = height // 2 + 250 * scaling_factor * math.sin(angle_end)
         rotation_angle_radians += 1
 
         # key = (start_digit, end_digit)
@@ -83,9 +83,9 @@ while running:
 
         pygame.draw.line(screen, line_color, (x_start, y_start), (x_end, y_end), 1)
         # print(f"Digits Used: {i}")
-        screen.blit(font.render(f"Digits Used: {i}", True, (255, 255, 255)), (0, 0))
+        # screen.blit(font.render(f"Digits Used: {i}", True, (255, 255, 255)), (0, 0))
         pygame.display.flip()
-        # pygame.time.delay(100)
+        pygame.time.delay(10)
         # clock.tick(1)
     pygame.quit()
 
